@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'sc0%ars7$+$okl$37_!w2n7w!24xwuagsy64q#*&*6up_73c_k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['kairos-website.herokuapp.com']
 
 
 # Application definition
@@ -77,11 +78,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+} """
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'dbulcvodp2ru5f',
+       'USER': 'jsggaazubsimtt',
+       'PASSWORD': '3ce1c268050335f592c99864371db8b15f5a97c7cf1385b2d08c52c1e2e98362',
+       'HOST': 'ec2-34-231-63-30.compute-1.amazonaws.com',
+       'PORT': '5432',
+   }
 }
 
 
@@ -126,6 +138,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+django_heroku.settings(locals())
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
