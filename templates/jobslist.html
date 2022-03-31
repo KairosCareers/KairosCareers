@@ -1,0 +1,19 @@
+{% for job in jobs %}
+<div class="container">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-2">
+            <img src="{{job.logo.url}}" class="card-img" alt="..." style="max-height:200px; padding:1px; vertical-align: middle;">
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h4 class="card-title">{{job.title}}</h4>
+              <h5 class="card-text">{{job.company}}</h5>
+              <p class="card-text"><small class="text-muted">Job Location - {{job.location}}</small></p>
+              <a href="job_page/{{job.id}}" class="btn btn-primary stretched-link">Apply Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+{% endfor %}

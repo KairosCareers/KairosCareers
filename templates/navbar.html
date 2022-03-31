@@ -1,0 +1,51 @@
+{% load static %}
+<header id="header" class="fixed-top header-inner-pages">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1"><img src="{% static '/kairos.jpeg' %}" style="height:50px;"></span>
+            <ul class="navbar-nav">
+                <li class="nav-item mr-3">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#LoginModal">
+                        Login
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Moderator Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/handleLogin" method="post">
+                    <div class="form-group col">
+                        <label for="loginusername">Login Username</label>
+                        <input type="text" name="loginusername" class="form-control" id="loginusername"
+                            placeholder="Enter Username" required>
+                    </div>
+                    <div class="form-group col">
+                        <label for="loginpass">Password</label>
+                        <input type="password" class="form-control" name="loginpass" id="loginpass"
+                            placeholder="Enter Your Password" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                {% csrf_token %}
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Login</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
