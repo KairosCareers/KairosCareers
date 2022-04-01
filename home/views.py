@@ -50,7 +50,6 @@ def add_job_submit(request):
         title = request.POST['job_title']
         location = request.POST['location']
         description = request.POST['description']
-        deadline = request.POST['deadline']
         url = request.POST['url']
         logo = request.FILES['logo']
 
