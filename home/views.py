@@ -77,7 +77,6 @@ def edit_job_submit(request, myid):
         title = request.POST['job_title']
         location = request.POST['location']
         description = request.POST['description']
-        deadline = request.POST['deadline']
         url = request.POST['url']
         logo = request.FILES['logo']
 
@@ -86,9 +85,7 @@ def edit_job_submit(request, myid):
         job.location = location
         job.description = description
         job.url = url
-
-        if deadline:
-            job.deadline = deadline
+        
         if logo:
             ext = logo.name.split('.')[-1]
             new_name = company+title+'.'+ext
