@@ -57,7 +57,7 @@ def add_job_submit(request):
         new_name = company+title+'.'+ext
         logo.name = new_name
 
-        job = Job.objects.create(company=company, title=title, location=location, description=description, deadline = deadline, url = url, logo = logo)
+        job = Job.objects.create(company=company, title=title, location=location, description=description, url = url, logo = logo)
         job.save()
         return redirect('dashboard')
     return redirect('dashboard')
